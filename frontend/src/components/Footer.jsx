@@ -44,7 +44,7 @@ const Footer = () => {
                 <a href='/book-launch'>Book Launch</a>
                 <a href=''>Contact Us</a>
                 <a href='https://ocullospace.com/privacy'>Privacy Policy</a>
-                <a href=''>Terms</a>
+                <a href='https://ocullospace.com/terms'>Terms</a>
             </div>
             <div className='flex flex-col justify-center font-sans text-white items-start gap-5'>
                 <a href='https://www.linkedin.com/company/ocullospace/'>Media</a>
@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
             <div className='flex flex-col justify-center font-sans text-white items-start gap-5'>
                 <a href="#contact" onClick={handleAzadClick}>AZAD</a>
-                <a href=''>About</a>
+                <a href='/about-us'>About</a>
                 <a href=''>Specs</a>
                 <a href=''>Launch Location</a>
             </div>
