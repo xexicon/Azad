@@ -16,7 +16,7 @@ app.use(express.json());
 
 // cors
 const allowedOrigins = [
-  'http://localhost:5173',
+  'http://localhost:5173', 'https://azad-frontend.vercel.app', 'https://azad.ocullospace.com'
 ];
 app.use(cors({
   origin: function (origin, callback) {
