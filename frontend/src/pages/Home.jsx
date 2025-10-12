@@ -8,14 +8,23 @@ import { GoDotFill } from "react-icons/go";
 import Engine from '../assets/Engine.svg';
 import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
 
   const rocketRef = useRef(null);
   const { inView, fullyOut, past, before, ratio } = useScrollFlags(rocketRef);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollToAzad) {
+      document.getElementById("Azad")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
 
   return (
-    <div className='w-full h-full bg-black flex flex-col gap-5'>
+    <div className='w-full h-full bg-[rgba(4,4,4,1)] flex flex-col gap-5'>
       <Navbar />
 
       <div className='sm:pl-25 sm:py-28 p-8 flex flex-col sm:gap-10 gap-5 relative container'>
@@ -24,7 +33,7 @@ const Home = () => {
         <img src={Rocket} alt="Rocket" className='sm:absolute sm:right-5 sm:mt-4' />
       </div>
 
-      <div className='w-full flex flex-col items-center justify-center py-13 gap-8'>
+      <div id='Azad' className='w-full flex flex-col items-center justify-center py-13 gap-8'>
         <div className="justify-start"><span className="text-white text-7xl font-extralight font-aspekta tracking-wider">Nippon-Sparked,</span><span class="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider"> Malaysia</span><span className="text-white sm:text-7xl text-3xl font-extralight font-['Aspekta'] tracking-wider">-Launched</span></div>
         <div className="sm:w-[800px] text-center justify-start text-white text-xl font-extralight font-inter leading-relaxed tracking-tight">AZAD is a prototype sounding rocket powered by a hybrid engine using HDPE + LOX. Engineered for safety, stability, and cost-efficiency, AZAD is the first step toward scalable and sustainable suborbital missions.</div>
       </div>

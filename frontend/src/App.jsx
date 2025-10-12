@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import BookLaunch from './pages/bookLaunch';
 import Home from './pages/Home';
+import ContactUs from './pages/ContactUs';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about-us" element={<h1>About Page</h1>} />
-      <Route path="/contact-us" element={<h1>Contact Page</h1>} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/book-launch" element={<BookLaunch />} />
       <Route path="*" element={<h1>404 Not Found!</h1>} />
     </Routes>

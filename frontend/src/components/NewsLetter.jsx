@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import Bg from "../assets/NewsLetter.svg";
+import Newsletter from "../assets/NewsLetter.svg";
+import FooterLine from '../assets/FooterLine.svg';
 
 const NewsLetter = () => {
   const [email, setEmail] = useState("");
@@ -58,10 +59,11 @@ const NewsLetter = () => {
   };
 
   return (
+    <div className="w-full">
     <div
       className="relative w-full h-[674px] flex pl-25 justify-start items-center"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)), url(${Bg})`,
+        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)), url(${Newsletter})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -104,6 +106,7 @@ const NewsLetter = () => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

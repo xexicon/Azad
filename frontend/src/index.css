@@ -35,3 +35,64 @@
 @layer base {
   html { @apply font-sans; } /* global default = Poppins */
 }
+
+/* Prevent the flag box background from turning white on hover */
+.react-tel-input .flag-dropdown,
+.react-tel-input .flag-dropdown:hover,
+.react-tel-input .flag-dropdown:focus {
+  background-color: rgba(4,4,4,1) !important;                    /* remove any hover border */
+}
+
+/* Optional: show white border on hover instead */
+.react-tel-input .flag-dropdown:hover {
+  border-radius: 8px;
+}
+
+/* Prevent the selected flag inside button from having white bg */
+.react-tel-input .selected-flag {
+  background-color: rgba(4,4,4,1) !important;
+}
+
+/* Keep dropdown dark and only show white border on hover */
+.react-tel-input .country-list {
+  background-color: rgba(4, 4, 4, 1) !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.react-tel-input .country-list .country {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* On hover: keep dark bg, show white border */
+.react-tel-input .country-list .country:hover {
+  background-color: rgba(4, 4, 4, 1) !important;
+  border: 1px solid white !important;
+  border-radius: 6px;
+}
+
+/* Highlight selected country as subtle white outline */
+.react-tel-input .country-list .country.highlight {
+  background-color: rgba(4,4,4,1) !important;
+  border: 1px solid white !important;
+  border-radius: 6px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  border-color: white;
+  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: not-allowed; /* optional for better UX */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
