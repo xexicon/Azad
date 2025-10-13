@@ -60,11 +60,11 @@ const ContactUs = () => {
           </div>
           <div className='flex flex-col gap-2'>
             <div className='mt-5 text-white text-xl leading-relaxed font-inter font-extralight'>Email ID*</div>
-            <input type='text' className='px-4 py-3 w-[730.40px] h-10 bg-zinc-300/0 rounded-md text-white font-inter font-extralight border border-white/70 placeholder-white/30 placeholder-text-inter' placeholder='John Doe' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+            <input type='text' className='px-4 py-3 w-[730.40px] h-10 bg-zinc-300/0 rounded-md text-white font-inter font-extralight border border-white/70 placeholder-white/30 placeholder-text-inter' placeholder='email@gmail.com' value={email} onChange={(e)=>setEmail(e.target.value)} required/>
           </div>
           <div className='flex flex-col gap-2'>
             <div className='mt-5 text-white text-xl leading-relaxed font-inter font-extralight'>Contact Number*</div>
-            <PhoneInput country={"in"} 
+            <PhoneInput country={"sg"} 
             value={contact_number}
             onChange={(value) => setContact_number(value)}
             placeholder=""

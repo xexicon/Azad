@@ -18,8 +18,11 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollToAzad) {
-      document.getElementById("Azad")?.scrollIntoView({ behavior: "smooth" });
+    if (location.state?.scrollToSection) {
+      const section = document.getElementById(location.state.scrollToSection);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     }
   }, [location]);
 
@@ -107,7 +110,7 @@ const Home = () => {
       {/* Launch area details */}
       <div className='w-full flex flex-col justify-center items-center py-24 gap-14 font-aspekta px-25'>
 
-        <div className=""><span className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">Our </span><span class="text-red-600 text-7xl font-extralight font-aspekta tracking-wider">Launch</span><span className="text-white text-7xl font-extralight font-['Aspekta'] tracking-wider"> Site</span></div>
+        <div id='launchloc' className=""><span className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">Our </span><span class="text-red-600 text-7xl font-extralight font-aspekta tracking-wider">Launch</span><span className="text-white text-7xl font-extralight font-['Aspekta'] tracking-wider"> Site</span></div>
 
         <div className='flex flex-row justify-center items-center'>
           <div className='flex flex-col font-aspekta sm:gap-15 gap-5 py-10'>

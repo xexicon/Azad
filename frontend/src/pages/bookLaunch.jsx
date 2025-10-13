@@ -7,6 +7,7 @@ import Launch1 from '../components/Launch1.jsx';
 import Launch2 from '../components/Launch2.jsx';
 import axios from 'axios';
 import { Toaster, toast } from "react-hot-toast";
+import ScrollToTop from '../hooks/ScrollToTop.jsx';
 
 const BookLaunch = () => {
   const [step, setStep] = useState(1);

@@ -34,7 +34,7 @@ const Launch1 = ({ data, setData, onNext }) => {
           <div className='flex flex-col gap-2'>
             <div className='text-white text-xl leading-relaxed tracking-tight font-inter font-extralight'>Contact Number*</div>
             <PhoneInput
-              country={"in"}
+              country={"sg"}
               value={data.contact_number}
               onChange={value => setData({ ...data, contact_number: value })}
               inputStyle={{
@@ -68,7 +68,7 @@ const Launch1 = ({ data, setData, onNext }) => {
             <div className='text-white text-xl leading-relaxed tracking-tight font-inter font-extralight'>Country of Origin*</div>
             <input
               type='text'
-              placeholder='India'
+              placeholder='Singapore'
               value={data.country}
               onChange={e => setData({ ...data, country: e.target.value })}
               className='px-4 py-3 w-80 h-10 bg-zinc-300/0 rounded-md text-white font-inter font-extralight border border-white/70 placeholder-white/30'
