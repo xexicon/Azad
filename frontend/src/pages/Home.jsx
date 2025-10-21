@@ -10,6 +10,7 @@ import NewsLetter from '../components/NewsLetter';
 import Footer from '../components/Footer';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import missionprofile from '../assets/missionprofile.svg';
 
 const Home = () => {
 
@@ -61,7 +62,7 @@ const Home = () => {
 
           <div className='flex flex-col'>
             <div className="justify-start text-white sm:text-xl text-sm font-light leading-relaxed tracking-tight uppercase">MAX APOGEE</div>
-            <div className="justify-start text-white sm:text-6xl text-2xl font-light leading-[69.81px] tracking-wide">12 Km</div>
+            <div className="justify-start text-white sm:text-6xl text-2xl font-light leading-[69.81px] tracking-wide">15 Km</div>
           </div>
 
           <div className='flex flex-col'>
@@ -178,6 +179,17 @@ const Home = () => {
           </div>
         </div>
 
+      </div>
+
+      {/* Mission profile */}
+      <div className='w-full flex flex-col justify-center items-center py-24 gap-24 font-aspekta text-center'>
+        <div className='flex flex-col gap-5'>
+
+          <div className=""><span className="text-red-600 sm:text-7xl text-3xl font-extralight tracking-wider">Mission</span><span className="text-white sm:text-7xl text-3xl font-extralight tracking-wider"> Profile</span></div>
+          <div className="text-right justify-start text-white sm:text-xl text-xs font-extralight font-inter leading-relaxed tracking-tight"> Azad’s flight profile showing the complete trajectory and recovery sequence of its mission.</div>
+        </div>
+
+        <img src={missionprofile} alt="Mission Profile" />
       </div>
 
       {/* NewsLetter */}
