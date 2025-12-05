@@ -11,6 +11,7 @@ import Footer from '../components/Footer';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import missionprofile from '../assets/missionprofile.svg';
+import Video from '../assets/launchVideo.mp4';
 
 const Home = () => {
 
@@ -190,6 +191,14 @@ const Home = () => {
         </div>
 
         <img src={missionprofile} alt="Mission Profile" />
+      </div>
+
+      {/* video */}
+      <div>
+        <video className='w-full' controls={false} autoPlay loop muted>
+          <source src={Video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* NewsLetter */}
