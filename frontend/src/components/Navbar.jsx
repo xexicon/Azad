@@ -18,20 +18,31 @@ const Navbar = () => {
 
 
   return (
-    <div className='w-full py-4 bg-[rgba(4,4,4,1)] border-b-2 border-white/10 font-sans inline-flex justify-between items-center px-25 gap-110'>
-            <div className='flex justify-left items-center'>
-                <a href="/"><img src={Azad} alt='Logo'/></a>
-            </div>
-            <div className='pt-1 inline-flex gap-20 text-[18px] justify-center items-center'>
-                <div className='text-white'><a href="/about-us">About</a></div>
-                <div className='text-white'><a href="#contact" onClick={handleAzadClick}>Azad</a></div>
-                <div className='text-white'><a href="/contact-us">Contact Us</a></div>
-                <div className='text-white'><a href="">News</a></div>
-            </div>
-            <div className='pt-1'>
-                <a href='/book-launch' className='flex justify-center items-center w-36 h-10 text-white border border-[#F00000] font-sans'>Book Launch</a>
-            </div>
+    <div className="w-full bg-[rgba(4,4,4,1)] border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4 flex items-center justify-between">
+        
+        {/* Logo */}
+        <a href="/">
+          <img src={Azad} alt="Logo" className="h-8 md:h-10" />
+        </a>
+
+        {/* Nav Links */}
+        <div className="hidden md:flex gap-6 lg:gap-10 text-base lg:text-lg">
+          <a href="/about-us" className="text-white">About</a>
+          <a href="#contact" onClick={handleAzadClick} className="text-white">Azad</a>
+          <a href="/contact-us" className="text-white">Contact Us</a>
+          <a href="#" className="text-white">News</a>
         </div>
+
+        {/* CTA */}
+        <a
+          href="/book-launch"
+          className="px-6 py-2 text-white border border-[#F00000] text-sm lg:text-base"
+        >
+          Book Launch
+        </a>
+      </div>
+    </div>
   );
 };
 

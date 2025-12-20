@@ -33,12 +33,33 @@ const Home = () => {
       <Navbar />
 
       <div className='sm:pl-25 sm:py-28 p-8 flex justify-between'>
-        <div className='flex flex-col gap-10'>
-        <div className="justify-start sm:w-[883px] z-10"><span className="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">A</span><span className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">ZAD Sounding Rocket – Redefining Hybrid Propulsion</span></div>
-        <a href='/book-launch' className='flex justify-center items-center w-36 h-10 text-white border border-[#F00000] font-sans'>Book Launch</a>
-        </div>
-        <img src={Rocket} alt="Rocket" className='' />
-      </div>
+  <div className='flex flex-col gap-10'>
+    <div className="justify-start sm:w-[883px] z-10">
+      <span className="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">A</span>
+      <span className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">
+        ZAD Sounding Rocket – Redefining Hybrid Propulsion
+      </span>
+    </div>
+    <a href='/book-launch' className='flex justify-center items-center w-36 h-10 text-white border border-[#F00000] font-sans'>
+      Book Launch
+    </a>
+  </div>
+
+  {/* FIXED IMAGE */}
+  <img
+    src={Rocket}
+    alt="Rocket"
+    className="
+      w-full
+      h-full
+      max-w-[420px]
+      xl:max-w-[520px]
+      object-contain
+      shrink-0
+    "
+  />
+</div>
+
 
       <div id='Azad' className='w-full flex flex-col items-center justify-center py-13 gap-8'>
         <div className="justify-start"><span className="text-white text-7xl font-extralight font-aspekta tracking-wider">Singapore-Sparked,</span><span class="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider"> Malaysia</span><span className="text-white sm:text-7xl text-3xl font-extralight font-['Aspekta'] tracking-wider">-Launched</span></div>
