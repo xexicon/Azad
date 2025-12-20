@@ -32,7 +32,7 @@ const Home = () => {
     <div className='w-full h-full bg-[rgba(4,4,4,1)] flex flex-col gap-5'>
       <Navbar />
 
-      <div className='sm:pl-25 sm:py-28 p-8 flex sm:gap-10 gap-5 relative container'>
+      <div className='sm:pl-25 sm:py-28 p-8 flex justify-between'>
         <div className='flex flex-col gap-10'>
         <div className="justify-start sm:w-[883px] z-10"><span className="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">A</span><span className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">ZAD Sounding Rocket – Redefining Hybrid Propulsion</span></div>
         <a href='/book-launch' className='flex justify-center items-center w-36 h-10 text-white border border-[#F00000] font-sans'>Book Launch</a>
