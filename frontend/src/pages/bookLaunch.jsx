@@ -27,7 +27,7 @@ const BookLaunch = () => {
 
   const [recordId, setRecordId] = useState(null);
 
-  // Load saved data from localStorage
+  /* ================= LOAD SAVED DATA ================= */
   useEffect(() => {
     const savedLaunch1 = localStorage.getItem('launch1Data');
     const savedLaunch2 = localStorage.getItem('launch2Data');
@@ -38,7 +38,6 @@ const BookLaunch = () => {
     if (savedRecordId) setRecordId(savedRecordId);
   }, []);
 
-  // Auto-save to localStorage
   useEffect(() => {
     localStorage.setItem('launch1Data', JSON.stringify(launch1Data));
   }, [launch1Data]);
@@ -47,7 +46,7 @@ const BookLaunch = () => {
     localStorage.setItem('launch2Data', JSON.stringify(launch2Data));
   }, [launch2Data]);
 
-  // ✅ Handle "Next" click from Launch1
+  /* ================= HANDLERS ================= */
   const handleNext = async () => {
     const { name, email, contact_number, country } = launch1Data;
 
@@ -57,17 +56,16 @@ const BookLaunch = () => {
     }
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/add`, launch1Data);
+      const response = await axios.post(
+        `${import.meta.env.VITE_SERVER_URL}/add`,
+        launch1Data
+      );
 
-      // ✅ Extract MongoDB ID properly
       const newId = response.data.lead?._id;
-      if (!newId) {
-        throw new Error("No ID returned from backend");
-      }
+      if (!newId) throw new Error("No ID returned from backend");
 
       setRecordId(newId);
       localStorage.setItem('recordId', newId);
-
       setStep(2);
     } catch (error) {
       console.error("Error saving Launch1:", error);
@@ -75,16 +73,11 @@ const BookLaunch = () => {
     }
   };
 
-  // ✅ Handle "Back" click from Launch2
-  const handleBack = () => {
-    setStep(1);
-  };
+  const handleBack = () => setStep(1);
 
-  // ✅ Handle "Submit" click from Launch2
   const handleSubmit = async () => {
     const { payload, launch_quarter, target_altitude } = launch2Data;
 
-    // Validation
     if (!payload || !launch_quarter || !target_altitude) {
       toast.error("Please fill all the * marked fields.");
       return;
@@ -96,20 +89,21 @@ const BookLaunch = () => {
     }
 
     try {
-      await axios.put(`${import.meta.env.VITE_SERVER_URL}/update/${recordId}`, {
-        payload_mass: payload,
-        target_quater: launch_quarter,
-        target_altitude
-      });
+      await axios.put(
+        `${import.meta.env.VITE_SERVER_URL}/update/${recordId}`,
+        {
+          payload_mass: payload,
+          target_quater: launch_quarter,
+          target_altitude
+        }
+      );
 
       toast.success("Booking submitted successfully!");
 
-      // Clear all stored data
       localStorage.removeItem('launch1Data');
       localStorage.removeItem('launch2Data');
       localStorage.removeItem('recordId');
 
-      // Reset state
       setLaunch1Data({ name: '', email: '', contact_number: '', country: '', company: '' });
       setLaunch2Data({ payload: '', launch_quarter: '', target_altitude: '' });
       setStep(1);
@@ -121,19 +115,25 @@ const BookLaunch = () => {
   };
 
   return (
-    <div className='w-full h-full bg-[rgba(4,4,4,1)]'>
+    <div className="w-full h-full bg-[rgba(4,4,4,1)]">
+      <ScrollToTop />
       <Toaster position="top-center" />
       <Navbar />
 
-      <div className='mb-10 flex flex-col justify-center items-center'>
-        {/* Header */}
-        <div className='flex flex-row gap-4'>
-          <div className='mt-20 font-aspekta font-extralight text-red-600 text-7xl'>Book</div>
-          <div className='mt-20 font-aspekta font-extralight text-white text-7xl'>Launch</div>
+      <div className="mb-10 flex flex-col justify-center items-center px-6 sm:px-0">
+
+        {/* ================= HEADER ================= */}
+        <div className="flex flex-row gap-4">
+          <div className="mt-20 font-aspekta font-extralight text-red-600 text-3xl sm:text-7xl">
+            Book
+          </div>
+          <div className="mt-20 font-aspekta font-extralight text-white text-3xl sm:text-7xl">
+            Launch
+          </div>
         </div>
 
-        {/* Form Section */}
-        <div className='justify-center items-center'>
+        {/* ================= FORM (FIXED CENTERING) ================= */}
+        <div className="flex justify-center items-center w-full sm:w-auto">
           {step === 1 && (
             <Launch1
               data={launch1Data}
@@ -151,27 +151,45 @@ const BookLaunch = () => {
           )}
         </div>
 
-        {/* Bottom Section */}
-        <div className="w-full h-[100vh] mt-20"
+        {/* ================= BOTTOM SECTION ================= */}
+        <div
+          className="
+            w-full
+            h-[70vh] sm:h-[100vh]
+            mt-20
+            pt-10
+            flex justify-center sm:justify-end
+            px-6 sm:px-0
+          "
           style={{
             backgroundImage: `linear-gradient(to bottom right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(${TotalRocket})`,
             backgroundSize: "cover",
-          }}>
-          <div className="mt-20 mr-30 flex flex-col items-end text-right">
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="flex flex-col items-center sm:items-end text-center sm:text-right sm:mr-30 gap-6">
             <div className="flex flex-row space-x-2">
-              <span className="text-white text-7xl font-extralight font-aspekta tracking-wider">Why </span>
-              <span className="text-red-600 text-7xl font-extralight font-aspekta tracking-wider">AZAD</span>
-              <span className="text-white text-7xl font-extralight font-aspekta tracking-wider">?</span>
+              <span className="text-white text-3xl sm:text-7xl font-extralight font-aspekta tracking-wider">
+                Why
+              </span>
+              <span className="text-red-600 text-3xl sm:text-7xl font-extralight font-aspekta tracking-wider">
+                AZAD
+              </span>
+              <span className="text-white text-3xl sm:text-7xl font-extralight font-aspekta tracking-wider">
+                ?
+              </span>
             </div>
-            <div className="text-white text-xl font-extralight font-inter leading-relaxed tracking-tight max-w-xl">
+
+            <div className="text-white text-sm sm:text-xl font-extralight font-inter leading-relaxed tracking-tight max-w-xl">
               AZAD represents a new class of safe, efficient, and scalable sounding rockets.
-              Built with a hybrid LOX–plastic propulsion system, it offers high thrust with reduced explosion risk and easier handling.
+              Built with a hybrid LOX–plastic propulsion system, it offers high thrust with
+              reduced explosion risk and easier handling.
             </div>
           </div>
         </div>
       </div>
 
-      <img src={FooterLine} alt='FooterLine' className='w-full' />
+      <img src={FooterLine} alt="FooterLine" className="w-full" />
       <Footer />
     </div>
   );

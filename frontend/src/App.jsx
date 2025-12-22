@@ -4,6 +4,7 @@ import ScrollToTop from './hooks/ScrollToTop';
 import Home from './pages/Home';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
+import VertPh from './components/VerticalRocketPhone';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/contact-us" element={<ContactUs />} />
       <Route path="/book-launch" element={<BookLaunch />} />
+      <Route path="/VertPh" element={<VertPh />} />
       <Route path="*" element={<h1>404 Not Found!</h1>} />
     </Routes>
     </BrowserRouter>

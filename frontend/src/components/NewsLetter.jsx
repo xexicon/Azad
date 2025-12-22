@@ -32,7 +32,6 @@ const NewsLetter = () => {
             body: JSON.stringify({ email }),
           });
 
-          // Try to extract a useful message if the server returns JSON/text
           const text = await res.text();
           const data = (() => {
             try { return JSON.parse(text); } catch { return { message: text }; }
@@ -51,8 +50,6 @@ const NewsLetter = () => {
       );
 
       setEmail("");
-    } catch (err) {
-      // toast.promise already showed the error; nothing else to do here
     } finally {
       setLoading(false);
     }
@@ -60,53 +57,81 @@ const NewsLetter = () => {
 
   return (
     <div className="w-full">
-    <div
-      className="relative w-full h-[674px] flex pl-25 justify-start items-center"
-      style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)), url(${Newsletter})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Toaster can also live once in App.tsx/App.jsx */}
-      <Toaster position="top-center" />
+      <div
+        className="
+          relative
+          w-full
+          h-[520px] sm:h-[674px]
+          flex
+          px-6 sm:pl-25
+          justify-center sm:justify-start
+          items-center
+        "
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)), url(${Newsletter})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Toaster */}
+        <Toaster position="top-center" />
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-11">
-        <div className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">
-          Newsletter
-        </div>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-8 sm:gap-11 w-full max-w-xl"
+        >
+          <div className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider text-center sm:text-left">
+            Newsletter
+          </div>
 
-        <div className="flex flex-row gap-4 items-center">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-[515px] h-12 rounded-[44px] bg-zinc-300/5 border border-white text-white
-                       font-sans text-lg font-light indent-8
-                       focus:outline-none focus:ring-0 focus:border-white disabled:opacity-50"
-            placeholder="Enter your email id"
-            disabled={loading}
-          />
+          <div className="flex flex-col sm:flex-row gap-4 items-center w-full">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={loading}
+              placeholder="Enter your email id"
+              className="
+                w-full sm:w-[515px]
+                h-12
+                rounded-[44px]
+                bg-zinc-300/5
+                border border-white
+                text-white
+                font-sans text-base sm:text-lg font-light
+                indent-6 sm:indent-8
+                focus:outline-none focus:ring-0 focus:border-white
+                disabled:opacity-50
+              "
+            />
 
-          <button
-            type="submit"
-            disabled={loading}
-            aria-busy={loading}
-            className="bg-red-600 font-sans rounded-[44px] text-white cursor-pointer px-7 py-3
-                       disabled:opacity-60 disabled:cursor-not-allowed inline-flex items-center gap-2"
-          >
-            {loading && (
-              <span
-                className="inline-block w-4 h-4 border-2 border-white/70 border-t-transparent rounded-full animate-spin"
-                aria-hidden
-              />
-            )}
-            {loading ? "Submitting…" : "Submit"}
-          </button>
-        </div>
-      </form>
-    </div>
+            <button
+              type="submit"
+              disabled={loading}
+              aria-busy={loading}
+              className="
+                w-full sm:w-auto
+                bg-red-600
+                font-sans
+                rounded-[44px]
+                text-white
+                px-7 py-3
+                inline-flex justify-center items-center gap-2
+                disabled:opacity-60 disabled:cursor-not-allowed
+              "
+            >
+              {loading && (
+                <span
+                  className="inline-block w-4 h-4 border-2 border-white/70 border-t-transparent rounded-full animate-spin"
+                  aria-hidden
+                />
+              )}
+              {loading ? "Submitting…" : "Submit"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
