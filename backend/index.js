@@ -7,9 +7,14 @@ const cors = require('cors');
 const bookNowRoute = require('./routes/bookNowRoute');
 const contactUsRoute = require('./routes/contactUsRoutes');
 const newsLetterRoute = require('./routes/newsLetterRoutes');
+const checkoutRoutes = require("./routes/checkoutRoutes");
+const webhookRoutes = require("./routes/webhookRoutes");
 
 
 const app = express();
+
+// webhook routes
+app.use("/api/webhooks", webhookRoutes);
 
 // for parsing application/json
 app.use(express.json());
@@ -39,6 +44,7 @@ app.use((req, res, next) => {
 app.use('/api', bookNowRoute);
 app.use('/api', contactUsRoute);
 app.use('/api', newsLetterRoute);
+app.use("/api/checkout", checkoutRoutes);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
