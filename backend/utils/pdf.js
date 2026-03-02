@@ -14,18 +14,40 @@ async function downloadTemplatePdfBuffer() {
   return Buffer.from(res.data);
 }
 
+// ✅ Robust font loader for local + Vercel
+function readFontFile(filename) {
+  const candidates = [
+    // fonts at repo root
+    path.join(process.cwd(), "assets", "fonts", filename),
+
+    // fonts inside /backend folder (common Vercel layout)
+    path.join(process.cwd(), "backend", "assets", "fonts", filename),
+
+    // relative to this file: src/utils/pdf.js -> assets/fonts
+    path.join(__dirname, "..", "..", "assets", "fonts", filename),
+
+    // in case utils is directly under src
+    path.join(__dirname, "..", "assets", "fonts", filename),
+  ];
+
+  for (const p of candidates) {
+    if (fs.existsSync(p)) return fs.readFileSync(p);
+  }
+
+  throw new Error(
+    `Font file not found: ${filename}\nTried:\n${candidates.join("\n")}`
+  );
+}
+
 async function generateTicketPdf({ buyerName, ticketCode, ticketNo }) {
   const templateBuffer = await downloadTemplatePdfBuffer();
   const pdfDoc = await PDFDocument.load(templateBuffer);
 
   pdfDoc.registerFontkit(fontkit);
 
-  const poppinsRegularBytes = fs.readFileSync(
-    path.join(process.cwd(), "assets", "fonts", "Poppins-Regular.ttf")
-  );
-  const poppinsBoldBytes = fs.readFileSync(
-    path.join(process.cwd(), "assets", "fonts", "Poppins-Bold.ttf")
-  );
+  // ✅ Load Poppins fonts safely
+  const poppinsRegularBytes = readFontFile("Poppins-Regular.ttf");
+  const poppinsBoldBytes = readFontFile("Poppins-Bold.ttf");
 
   const poppins = await pdfDoc.embedFont(poppinsRegularBytes);
   const poppinsBold = await pdfDoc.embedFont(poppinsBoldBytes);
@@ -34,21 +56,15 @@ async function generateTicketPdf({ buyerName, ticketCode, ticketNo }) {
   const { width, height } = firstPage.getSize();
 
   // --------- POSITION SETTINGS ----------
-  // Name: move a bit UP
   const NAME_X = 260;
-  const NAME_Y = 130.5; // was 106.5 -> moved up (~12 pts)
+  const NAME_Y = 130.5;
   const NAME_SIZE = 24;
 
-  // Ticket code: bottom-right
   const CODE_SIZE = 10;
   const MARGIN_RIGHT = 22;
   const MARGIN_BOTTOM = 18;
 
-  // if you want ONLY the code:
   const codeText = `${ticketCode}`;
-
-  // If you want with label:
-  // const codeText = `Ticket ID: ${ticketCode}`;
 
   // Right-align text
   const codeTextWidth = poppins.widthOfTextAtSize(codeText, CODE_SIZE);
