@@ -5,7 +5,7 @@ function uploadPdfBufferToCloudinary(buffer, publicId) {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
-        resource_type: "image",      // IMPORTANT for PDF preview + better delivery
+        resource_type: "raw",      // IMPORTANT for PDF preview + better delivery
         folder: "generated_tickets",
         public_id: publicId,
         overwrite: true,
