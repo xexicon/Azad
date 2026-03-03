@@ -76,7 +76,7 @@ const LaunchSuccess = () => {
           </div>
 
           {/* PDF Section */}
-          <div className='pt-50 pr-70 flex flex-col items-end gap-4'>
+          <div className='pt-20 pr-120 flex flex-col items-end gap-4'>
 
             {loading && (
               <div className='text-white text-xl'>
@@ -97,7 +97,7 @@ const LaunchSuccess = () => {
                   <Document file={pdfUrl}>
                     <Page
                       pageNumber={1}
-                      width={600}
+                      width={500}
                       renderAnnotationLayer={false}
                       renderTextLayer={false}
                     />

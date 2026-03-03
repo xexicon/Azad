@@ -78,14 +78,14 @@ const Home = () => {
         </div>
 
         <div className="sm:w-[1100px] text-white sm:text-xl text-sm font-extralight font-inter leading-relaxed tracking-tight">
-          Project Marine-Strike is an experimental high-altitude vehicle designed for high-velocity atmospheric piercing. By utilizing a heavy-duty fiberglass airframe and a unique twin-engine sustainer, the rocket is engineered to withstand Mach 1.5+ flight regimes before a controlled ballistic impact in open water.
+          Project Karman-X1 is an experimental high-altitude vehicle designed for high-velocity atmospheric piercing. By utilizing a heavy-duty fiberglass airframe and a unique twin-engine sustainer, the rocket is engineered to withstand Mach 1.5+ flight regimes before a controlled ballistic impact in open water.
 
         </div>
       </div>
 
       {/* ================= TECHNICAL OVERVIEW ================= */}
       {/* Desktop Version */ }
-      <div className="hidden lg:block">
+      <div className="block">
       <div className="w-full flex flex-row items-start justify-center py-5 px-15">
 
         {/* LEFT TEXT */}
@@ -95,7 +95,7 @@ const Home = () => {
           text-center sm:text-left
           ${inView ? 'sm:sticky sm:top-16' : ''}`}
         >
-          <div className="w-80 text-white sm:text-7xl text-3xl font-extralight tracking-wider">
+          <div className="w-80 text-white text-7xl font-extralight tracking-wider">
             Technical <br /> Overview
           </div>
 
@@ -237,7 +237,7 @@ const Home = () => {
               <div className="text-white sm:text-5xl text-2xl uppercase whitespace-nowrap">
                 LAUNCH WINDOW
               </div>
-              <div className="text-white sm:text-xl text-sm">March 2026</div>
+              <div className="text-white sm:text-xl text-sm">July 2026</div>
             </div>
 
             <div>
@@ -338,7 +338,7 @@ const Home = () => {
           </div>
 
           <div className="text-white text-xl font-extralight font-aspekta">
-            Project Marine-Strike is an experimental high-altitude vehicle designed for high-velocity atmospheric piercing. By utilizing a heavy-duty fiberglass airframe and a unique twin-engine sustainer, the rocket is engineered to withstand Mach 1.5+ flight regimes before a controlled ballistic impact in open water.
+            Project Karman-X1 is an experimental high-altitude vehicle designed for high-velocity atmospheric piercing. By utilizing a heavy-duty fiberglass airframe and a unique twin-engine sustainer, the rocket is engineered to withstand Mach 1.5+ flight regimes before a controlled ballistic impact in open water.
 
           </div>
         </div>

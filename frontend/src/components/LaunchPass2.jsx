@@ -152,27 +152,32 @@ const LaunchPass2 = ({
 
               <div className='flex flex-row gap-15'>
                 <div className='flex flex-col gap-10'>
-                  <div className='text-white text-xl font-extralight'>Item</div>
-                  <div className='text-white text-xl font-extralight'>Subtotal</div>
-                  <div className='text-white text-xl font-extralight'>Shipping</div>
-                  <div className='text-white text-xl font-extralight'>Total</div>
-                </div>
-
-                <div className='flex flex-col gap-10'>
-                  <div className='flex flex-row'>
+                <div className='flex flex-row gap-20'>
+                  <div className='text-white text-xl font-aspekta font-extralight'>Item</div>
+                  <div className='flex flex-row gap-5'>
                     <img src={Pass} alt="summary" className='w-12 h-4'/>
-                    <span className='text-white text-xl font-extralight'>
-                      1x Launch Pass
+                    <span className='text-white text-xl font-aspekta font-extralight'>
+                      1x Business Networking Pass
                     </span>
                   </div>
-                  <div className='text-white text-xl font-light'>
+                  </div>
+                  <div className='flex flex-row gap-15'>
+                  <div className='text-white text-xl font-aspekta font-extralight'>Subtotal</div>
+                  <div className='text-white text-right text-xl font-aspekta font-light'>
                     {subtotal.toFixed(2)} USD
                   </div>
-                  <div className='text-white text-xl'>
+                  </div>
+                  <div className='flex flex-row gap-15'>
+                  <div className='text-white text-xl font-aspekta font-extralight'>Shipping</div>
+                  <div className='text-white text-right text-xl font-aspekta font-light'>
                     {shipping.toFixed(2)} USD
                   </div>
-                  <div className='text-white text-xl font-light'>
+                  </div>
+                  <div className='flex flex-row gap-23'>
+                  <div className='text-white text-xl font-aspekta font-extralight'>Total</div>
+                  <div className='text-white text-right text-xl font-aspekta font-light'>
                     {total.toFixed(2)} USD
+                  </div>
                   </div>
                 </div>
               </div>
