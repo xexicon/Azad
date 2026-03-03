@@ -1,4 +1,5 @@
 import React from 'react';
+import FooterLine from '../assets/FooterLine.svg';
 import Azad from '../assets/Azad.svg';
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -20,7 +21,9 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full pt-10 pb-30 bg-[rgba(4,4,4,1)]">
+    <div>
+    <img src={FooterLine} alt="FooterLine" className="w-full" />
+    <div className="w-full pt-10 pb-30 bg-black">
 
       {/* ================= DESKTOP FOOTER (UNCHANGED) ================= */}
       <div className="hidden md:block">
@@ -141,6 +144,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Ocullo Technology Pte. Ltd. Singapore
         </div>
       </div>
+    </div>
     </div>
   );
 };

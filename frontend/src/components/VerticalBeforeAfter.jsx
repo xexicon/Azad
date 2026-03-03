@@ -1,7 +1,7 @@
 // VerticalBeforeAfter_DIAG.jsx
 import React, { useRef, useState, useEffect } from "react";
-import RocketFull from "../assets/RocketFull.svg";
-import RocketSkel from "../assets/RocketSkel.svg";
+import RocketFull from "../assets/RocketFull.svg?url";
+import RocketSkel from "../assets/RocketSkel.svg?url";
 
 export default function VerticalBeforeAfter() {
   const boxRef = useRef(null);
