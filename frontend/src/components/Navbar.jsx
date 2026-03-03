@@ -37,12 +37,20 @@ const Navbar = () => {
         </div>
 
         {/* Desktop CTA (UNCHANGED) */}
+        <div className='inline-flex gap-5'>
+        <a
+          href="/launch-pass"
+          className="hidden md:block px-6 py-2 text-white bg-[#F00000] border border-[#F00000] text-sm lg:text-base"
+        >
+          Launch Pass
+        </a>
         <a
           href="/book-launch"
           className="hidden md:block px-6 py-2 text-white border border-[#F00000] text-sm lg:text-base"
         >
           Book Launch
         </a>
+        </div>
 
         {/* Mobile Menu Button */}
         <button

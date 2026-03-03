@@ -1,5 +1,6 @@
-import Rocket from '../assets/Rocket.png';
+import Rocket from '../assets/HeroRocket.svg';
 import Navbar from '../components/Navbar';
+import CA from '../assets/C&A.svg';
 import VerticalBeforeAfter from '../components/VerticalBeforeAfter';
 import { useScrollFlags } from '../hooks/useScrollFlags';
 import { useRef, useEffect } from 'react';
@@ -12,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import missionprofile from '../assets/missionprofile.svg';
 import Video from '../assets/launchVideo2.MOV';
 import VertPh from '../components/VerticalRocketPhone';
+import RocketSkel from '../assets/RocketSkel.svg';
 
 const Home = () => {
 
@@ -27,34 +29,40 @@ const Home = () => {
   }, [location]);
 
   return (
-    <div className="w-full h-full bg-[rgba(4,4,4,1)] flex flex-col gap-5">
+    <div className="w-full h-full bg-black flex flex-col gap-5">
       <Navbar />
 
       {/* ================= HERO ================= */}
-      <div className="sm:pl-25 sm:py-28 p-8 pt-25 flex flex-col-reverse sm:flex-row justify-between items-center gap-10">
+      <div className="sm:pl-25 sm:py-28 p-8 pt-25 flex flex-col-reverse sm:flex-row justify-between items-center gap-5">
 
         <div className="flex flex-col gap-10 items-center sm:items-start text-center sm:text-left">
           <div className="sm:w-[883px] z-10">
-            <span className="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">
-              A
-            </span>
             <span className="text-white sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">
-              ZAD Sounding Rocket – Redefining Hybrid Propulsion
+              Project <span className="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta tracking-wider">
+              Karman-X1:
+            </span> Dual-Stage Rocket
             </span>
           </div>
-
+          <div className='inline-flex gap-5'>
           <a
             href="/book-launch"
             className="flex justify-center items-center w-36 h-10 text-white border border-[#F00000] font-sans"
           >
             Book Launch
           </a>
+          <a
+            href="/launch-pass"
+            className="flex justify-center items-center w-36 h-10 text-white bg-[#F00000] border border-[#F00000] font-sans"
+          >
+            Launch Pass
+          </a>
+          </div>
         </div>
 
         <img
           src={Rocket}
           alt="Rocket"
-          className="hidden sm:block w-full max-w-[280px] sm:max-w-[420px] xl:max-w-[520px] object-contain shrink-0"
+          className="hidden sm:block w-full max-w-[280px] sm:max-w-[420px] xl:max-w-[700px] object-contain shrink-0"
         />
       </div>
 
@@ -75,10 +83,9 @@ const Home = () => {
           </span>
         </div>
 
-        <div className="sm:w-[800px] text-white sm:text-xl text-sm font-extralight font-inter leading-relaxed tracking-tight">
-          AZAD is a prototype sounding rocket powered by a hybrid engine using HDPE + LOX.
-          Engineered for safety, stability, and cost-effectiveness, AZAD represents the first
-          step toward scalable and sustainable suborbital missions.
+        <div className="sm:w-[1100px] text-white sm:text-xl text-sm font-extralight font-inter leading-relaxed tracking-tight">
+          Project Marine-Strike is an experimental high-altitude vehicle designed for high-velocity atmospheric piercing. By utilizing a heavy-duty fiberglass airframe and a unique twin-engine sustainer, the rocket is engineered to withstand Mach 1.5+ flight regimes before a controlled ballistic impact in open water.
+
         </div>
       </div>
 
@@ -99,41 +106,41 @@ const Home = () => {
           </div>
 
           <div>
-            <div className="text-white sm:text-xl text-sm uppercase">PAYLOAD MASS</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">10 kg</div>
+            <div className="text-white sm:text-xl text-sm uppercase">MAX VELOCITY</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">Mach 1.5 - 1.8</div>
           </div>
 
           <div>
-            <div className="text-white sm:text-xl text-sm uppercase">SIZE OF THE PAYLOAD BAY</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">350 × 400 mm</div>
+            <div className="text-white sm:text-xl text-sm uppercase">BOOSTER MOTOR</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">N1000W (98mm)</div>
           </div>
 
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">MAX APOGEE</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">15 Km</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">10,000m (32,808 ft)</div>
           </div>
 
           <div>
-            <div className="text-white sm:text-xl text-sm uppercase">MAX ACCELERATION</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">3.3 G</div>
+            <div className="text-white sm:text-xl text-sm uppercase">SUSTAINER MOTORS</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">Twin-Engine <br/> Cluster (2x [Insert <br/>Motor Class, e.g., <br/>K550s])</div>
           </div>
         </div>
 
         {/* ROCKET */}
         <div ref={rocketRef} className="px-6 sm:px-35 flex justify-center">
-          <VerticalBeforeAfter className="hidden lg:block"/>
+          <img src={RocketSkel} />
         </div>
 
         {/* RIGHT TEXT */}
         <div
           className={`flex flex-col font-aspekta sm:gap-12 gap-4 py-10
-          items-center sm:items-start
-          text-center sm:text-left
+          items-center sm:items-end
+          text-center sm:text-right
           ${inView ? 'sm:sticky sm:top-16' : ''}`}
         >
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">LENGTH</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">7400 mm</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">4.0 Meters (13.1 ft)</div>
           </div>
 
           <div>
@@ -142,8 +149,8 @@ const Home = () => {
           </div>
 
           <div>
-            <div className="text-white sm:text-xl text-sm uppercase">PROPELLANT COMBINATION</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">HDPE + LOX</div>
+            <div className="text-white sm:text-xl text-sm uppercase">AIRFRAME MATERIAL</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">High-Temp Filament-<br/>Wound Fiberglass</div>
           </div>
 
           <div>
@@ -152,8 +159,8 @@ const Home = () => {
           </div>
 
           <div>
-            <div className="text-white sm:text-xl text-sm uppercase">DIAMETER</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">454 mm</div>
+            <div className="text-white sm:text-xl text-sm uppercase">RECOVERY STRATEGY</div>
+            <div className="text-white sm:text-6xl text-2xl font-light">High-Velocity <br/>Sea Impact </div>
           </div>
         </div>
       </div>
@@ -270,36 +277,66 @@ const Home = () => {
       </div>
 
       {/* ================= ENGINE ================= */}
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center sm:items-start px-6 sm:px-25 py-12 gap-10 text-center sm:text-right">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center sm:items-start px-6 sm:px-25 py-12 gap-10 text-center sm:text-right font-aspekta font-extralight">
         <img src={Engine} alt="Engine" />
 
         <div className="flex flex-col gap-5 items-center sm:items-end">
           <div>
-            <span className="text-red-600 sm:text-7xl text-3xl">HDPE + LOX</span>
-            <span className="text-white sm:text-7xl text-3xl"> Engine</span>
+            <span className="text-red-600 sm:text-7xl text-3xl font-extralight font-aspekta">Propulsion:</span>
+            <span className="text-white sm:text-7xl text-3xl font-aspekta font-extralight"> The 1+2 <br/>Configuration</span>
           </div>
 
           <div className="sm:w-[625px] text-white sm:text-xl text-xs">
-            AZAD’s hybrid engine combines liquid oxygen (LOX) and high-density polyethylene (HDPE)
-            to achieve efficient, controllable combustion with improved safety and handling.
+            This vehicle utilizes a "heavy-start" booster followed by a high-thrust twin-cluster sustainer.
+
           </div>
 
           <div className="flex flex-col gap-10 mt-10 items-center sm:items-end">
             <div>
-              <div className="text-white sm:text-5xl text-xl">HDPE + LOX</div>
-              <div className="text-white sm:text-xl text-xs">PROPELLANT</div>
+              <div className="text-white sm:text-5xl text-xl">The Booster:</div>
+              <div className="text-white sm:text-xl text-xs">Provides a 13.5-second long-burn "White Lightning" push to clear the dense lower atmosphere.</div>
             </div>
 
             <div>
-              <div className="text-white sm:text-5xl text-xl">20kN (2T)</div>
-              <div className="text-white sm:text-xl text-xs">NOMINAL THRUST</div>
+              <div className="text-white sm:text-5xl text-xl">The Sustainer (Twin Cluster): </div>
+              <div className="text-white sm:text-xl text-xs">Ignited at altitude via an onboard flight computer. The dual-motor configuration provides a massive spike in thrust-to-weight ratio to push through the transonic barrier and reach the 10km target.</div>
             </div>
           </div>
         </div>
       </div>
 
+      {/* ================= Construction & Aerodynamics ================= */}
+      <div className="w-full flex flex-row gap-20">
+            <div className="flex flex-col gap-5 justify-center items-start text-left px-25 py-12 font-aspekta font-extralight">
+          <div className='flex flex-col'>
+            <span className="text-white text-7xl font-aspekta font-extralight"> Construction &</span>
+            <span className="text-red-600 text-7xl font-extralight font-aspekta">Aerodynamics</span>
+          </div>
+          
+            
+          <div className="flex flex-col gap-10 mt-10 items-start">
+          <div>
+              <div className="text-white text-5xl">Fiberglass Mix Carbon fiber Resilience:</div>
+              <div className="text-white text-xl">Unlike carbon fiber, our filament-wound fiberglass provides superior RF transparency for onboard telemetry and higher impact resistance for the marine landing.</div>
+            </div>
+            <div>
+              <div className="text-white text-5xl">Supersonic Stability:</div>
+              <div className="text-white text-xl">To prevent fin flutter at Mach 1.5, the rocket utilizes G10 fiberglass fins with a "beveled" leading edge, securely mounted with internal tip-to-tip reinforcements.</div>
+            </div>
+
+            <div>
+              <div className="text-white text-5xl">Sea Impact Design:</div>
+              <div className="text-white text-xl">The nose cone and forward sections are pressure-sealed to ensure the vehicle remains buoyant for recovery after the ballistic descent.</div>
+            </div>
+          </div>
+          </div>
+          <div className='justify-end'>
+          <img src={CA} alt="C&A" />
+          </div>
+      </div>
+
       {/* ================= MISSION PROFILE ================= */}
-      <div className="w-full flex flex-col items-center py-16 sm:py-24 gap-24 text-center px-6">
+      <div className="w-full flex flex-col items-center py-24 gap-24 text-center px-70">
         <div className="flex flex-col gap-5">
           <div>
             <span className="text-red-600 sm:text-7xl text-3xl">Mission</span>
@@ -307,7 +344,8 @@ const Home = () => {
           </div>
 
           <div className="text-white sm:text-xl text-xs">
-            Azad’s flight profile showing the complete trajectory and recovery sequence of its mission.
+            Project Marine-Strike is an experimental high-altitude vehicle designed for high-velocity atmospheric piercing. By utilizing a heavy-duty fiberglass airframe and a unique twin-engine sustainer, the rocket is engineered to withstand Mach 1.5+ flight regimes before a controlled ballistic impact in open water.
+
           </div>
         </div>
 
