@@ -188,7 +188,7 @@ const BookLaunch = () => {
           </div>
         </div>
       </div>
-      
+      <img src={FooterLine} alt="FooterLine" className="w-full" />
       <Footer />
     </div>
   );

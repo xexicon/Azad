@@ -22,7 +22,6 @@ const Footer = () => {
 
   return (
     <div>
-    <img src={FooterLine} alt="FooterLine" className="w-full" />
     <div className="w-full pt-10 pb-30 bg-black">
 
       {/* ================= DESKTOP FOOTER (UNCHANGED) ================= */}
@@ -31,12 +30,12 @@ const Footer = () => {
           <div className="flex flex-col justify-start items-start gap-20">
             <img className="w-60 h-16" src={Azad} alt="Logo" />
 
-            <div className="flex flex-row gap-20">
+            <div className="flex flex-row gap-5">
               <button
                 className="bg-red-600 border-red-600 text-white text-lg font-sans font-semibold py-2.5 px-5"
                 onClick={() => navigate('/book-launch')}
               >
-                Book a Launch
+                Book Launch
               </button>
 
               <button

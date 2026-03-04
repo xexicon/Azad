@@ -6,6 +6,7 @@ import LaunchPass2 from '../components/LaunchPass2.jsx'
 import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import FooterLine from '../assets/FooterLine.svg';
 
 const LaunchPass = () => {
 
@@ -213,7 +214,7 @@ const LaunchPass = () => {
           </div>
         </div>
       </div>
-
+      <img src={FooterLine} alt="FooterLine" className="w-full" />
       <Footer />
     </div>
   )

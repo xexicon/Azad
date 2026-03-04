@@ -86,7 +86,7 @@ const Home = () => {
       {/* ================= TECHNICAL OVERVIEW ================= */}
       {/* Desktop Version */ }
       <div className="block">
-      <div className="w-full flex flex-row items-start justify-center py-5 px-15">
+      <div className="w-full flex flex-row items-start justify-center py-5 font-aspekta font-extralight px-15">
 
         {/* LEFT TEXT */}
         <div
@@ -106,17 +106,17 @@ const Home = () => {
 
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">BOOSTER MOTOR</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">N1000W (98mm)</div>
+            <div className="text-white sm:text-6xl text-2xl leading-normal font-light">N1000W (98mm)</div>
           </div>
 
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">MAX APOGEE</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">10,000m (32,808 ft)</div>
+            <div className="text-white sm:text-6xl text-2xl leading-normal font-light">10,000m (32,808 ft)</div>
           </div>
 
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">SUSTAINER MOTORS</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">Twin-Engine <br/> Cluster (2x [Insert <br/>Motor Class, e.g., <br/>K550s])</div>
+            <div className="text-white sm:text-6xl text-2xl font-light leading-normal">Twin-Engine <br/> Cluster (2x [Insert <br/>Motor Class, e.g., <br/>K550s])</div>
           </div>
         </div>
 
@@ -144,7 +144,7 @@ const Home = () => {
 
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">AIRFRAME MATERIAL</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">High-Temp Filament-<br/>Wound Fiberglass</div>
+            <div className="text-white sm:text-6xl text-2xl leading-normal font-light">High-Temp Filament-<br/>Wound Fiberglass</div>
           </div>
 
           <div>
@@ -154,7 +154,7 @@ const Home = () => {
 
           <div>
             <div className="text-white sm:text-xl text-sm uppercase">RECOVERY STRATEGY</div>
-            <div className="text-white sm:text-6xl text-2xl font-light">High-Velocity <br/>Sea Impact </div>
+            <div className="text-white sm:text-6xl text-2xl leading-normal font-light">High-Velocity <br/>Sea Impact </div>
           </div>
         </div>
       </div>
@@ -222,7 +222,7 @@ const Home = () => {
       {/* ================= LAUNCH SITE ================= */}
       <div
         id="launchloc"
-        className="w-full flex flex-col items-center py-16 sm:py-24 gap-5 font-aspekta px-6 sm:px-25 text-center sm:text-left"
+        className="w-full flex flex-col items-center py-16 sm:py-24 gap-5 font-aspekta px-6 sm:px-25 text-center sm:text-left font-extralight"
       >
         <div>
           <span className="text-white sm:text-7xl text-3xl font-extralight">Our </span>

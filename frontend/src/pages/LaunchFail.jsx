@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import FooterLine from '../assets/FooterLine.svg';
 
 const LaunchFail = () => {
     const navigate = useNavigate();
@@ -26,6 +27,7 @@ Try Again...</span>
 </div>
         </div>
       </div>
+      <img src={FooterLine} alt="FooterLine" className="w-full" />
       <Footer />
     </div>
   )

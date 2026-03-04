@@ -7,6 +7,7 @@ import { Document, Page, pdfjs } from "react-pdf"
 import "react-pdf/dist/Page/AnnotationLayer.css"
 import "react-pdf/dist/Page/TextLayer.css"
 import { FiDownload } from "react-icons/fi"
+import FooterLine from '../assets/FooterLine.svg';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -61,12 +62,12 @@ const LaunchSuccess = () => {
     <div className='w-full h-full bg-black'>
       <Navbar />
 
-      <div className="bg-[url('./assets/LaunchSuccessbg.png')] w-full h-screen bg-cover">
+      <div className="bg-[url('./assets/LaunchSuccessbg.png')] w-full h-[855px] bg-cover">
 
         <div className='flex flex-col items-end pt-40 gap-6'>
 
           {/* Title */}
-          <div className='flex flex-col text-left'>
+          <div className='flex flex-col text-left pr-30'>
             <span className='text-white text-7xl font-extralight font-aspekta'>
               Launch Pass
             </span>
@@ -76,7 +77,7 @@ const LaunchSuccess = () => {
           </div>
 
           {/* PDF Section */}
-          <div className='pt-20 pr-120 flex flex-col items-end gap-4'>
+          <div className='pt-5 pr-60 flex flex-col items-end gap-4'>
 
             {loading && (
               <div className='text-white text-xl'>
@@ -97,7 +98,7 @@ const LaunchSuccess = () => {
                   <Document file={pdfUrl}>
                     <Page
                       pageNumber={1}
-                      width={500}
+                      width={700}
                       renderAnnotationLayer={false}
                       renderTextLayer={false}
                     />
@@ -121,7 +122,7 @@ const LaunchSuccess = () => {
 
         </div>
       </div>
-
+      <img src={FooterLine} alt="FooterLine" className="w-full" />
       <Footer />
     </div>
   )
