@@ -16,7 +16,7 @@ const LaunchPass = () => {
   const SHIPPING = 0;
   const TOTAL = SUBTOTAL + SHIPPING;
 
-  const stepSectionRef = useRef(null); // ✅ Ref for scrolling
+  const stepSectionRef = useRef(null);
 
   const [personalDetails, setPersonalDetails] = useState({
     name: "",
@@ -35,7 +35,6 @@ const LaunchPass = () => {
     consent: false,
   })
 
-  // ✅ Restore only if exists
   useEffect(() => {
     const saved = localStorage.getItem("launchPassData");
     if (saved) {
@@ -48,9 +47,6 @@ const LaunchPass = () => {
     }
   }, []);
 
-  // =========================
-  // STEP 1 → SAVE personalDetails ONLY
-  // =========================
   const handleNextStep = () => {
 
     if (!personalDetails.name.trim()) {
@@ -81,9 +77,10 @@ const LaunchPass = () => {
     setStep(2);
   };
 
-  // =========================
-  // STEP 2 → SAVE shippingDetails THEN CALL API
-  // =========================
+  const handleBack = () => {
+    setStep(1)
+  }
+
   const handleCheckout = async () => {
 
     if (!shippingDetails.postalCode.trim()) {
@@ -145,9 +142,6 @@ const LaunchPass = () => {
     }
   };
 
-  // =========================
-  // SCROLL FUNCTION
-  // =========================
   const scrollToForm = () => {
     if (stepSectionRef.current) {
       stepSectionRef.current.scrollIntoView({
@@ -161,8 +155,8 @@ const LaunchPass = () => {
     <div className='w-full h-full bg-black'>
       <ToastContainer position="top-right" autoClose={3000} theme='dark'/>
       <Navbar />
+
       <div className='pt-18'>
-      {/* HERO SECTION */}
       <div className="bg-[url('./assets/Launchbg.svg')] bg-cover w-full h-screen">
         <div className='flex flex-col pt-70 pl-20 gap-5'>
           <span className="text-white text-7xl font-extralight font-aspekta">
@@ -181,9 +175,8 @@ const LaunchPass = () => {
       </div>
       </div>
 
-      {/* STEP SECTION */}
       <div
-        ref={stepSectionRef}  // ✅ Attach ref here
+        ref={stepSectionRef}
         className="bg-[url('./assets/Launchbg2.svg')] bg-cover bg-center w-full h-full mb-20"
       >
         <div className="flex flex-col gap-4 items-center pt-20 justify-center h-full">
@@ -206,6 +199,7 @@ const LaunchPass = () => {
                 shippingDetails={shippingDetails}
                 setShippingDetails={setShippingDetails}
                 handleCheckout={handleCheckout}
+                handleBack={handleBack}
                 subtotal={SUBTOTAL}
                 shipping={SHIPPING}
                 total={TOTAL}
@@ -215,6 +209,7 @@ const LaunchPass = () => {
           </div>
         </div>
       </div>
+
       <img src={FooterLine} alt="FooterLine" className="w-full" />
       <Footer />
     </div>

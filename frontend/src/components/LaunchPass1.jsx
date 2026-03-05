@@ -118,6 +118,7 @@ const LaunchPass1 = ({ personalDetails, setPersonalDetails, nextStep }) => {
             <input
               type="text"
               placeholder="Singapore"
+              value={personalDetails.country}
               onChange={(e) =>
                 setPersonalDetails({ ...personalDetails, country: e.target.value })
               }
@@ -144,6 +145,7 @@ const LaunchPass1 = ({ personalDetails, setPersonalDetails, nextStep }) => {
             <input
               type="text"
               placeholder="OculloSpace PTE LTD"
+              value={personalDetails.companyOrInstitution}
               onChange={(e) =>
                 setPersonalDetails({ ...personalDetails, companyOrInstitution: e.target.value })
           }

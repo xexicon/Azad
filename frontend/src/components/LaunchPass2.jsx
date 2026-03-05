@@ -5,6 +5,7 @@ const LaunchPass2 = ({
   shippingDetails,
   setShippingDetails,
   handleCheckout,
+  handleBack,
   subtotal,
   shipping,
   total
@@ -133,15 +134,23 @@ const LaunchPass2 = ({
               </div>
 
               {/* Submit */}
-              <div className='flex justify-center'>
-                <button
-                  disabled={isSubmitting}
-                  onClick={handleSubmitClick}
-                  className="w-28 h-10 mt-5 mb-5 bg-transparent rounded-md border border-white/70 text-white"
-                >
-                  {isSubmitting ? "Processing..." : "Submit"}
-                </button>
-              </div>
+              <div className='flex justify-center gap-5'>
+  <button
+    disabled={isSubmitting}
+    onClick={handleBack}
+    className="w-28 h-10 mt-5 mb-5 bg-transparent rounded-md border border-white/70 text-white"
+  >
+    Back
+  </button>
+
+  <button
+    disabled={isSubmitting}
+    onClick={handleSubmitClick}
+    className="w-28 h-10 mt-5 mb-5 bg-transparent rounded-md border border-white/70 text-white"
+  >
+    {isSubmitting ? "Processing..." : "Submit"}
+  </button>
+</div>
             </div>
 
             {/* RIGHT SECTION */}
