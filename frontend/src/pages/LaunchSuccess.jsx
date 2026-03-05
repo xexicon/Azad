@@ -62,7 +62,7 @@ const LaunchSuccess = () => {
 
   }, [sessionId])
 
-  /* Share text */
+
   const shareText = "I just got my Launch Pass 🚀"
 
   const whatsappShare = pdfUrl
@@ -74,10 +74,10 @@ const LaunchSuccess = () => {
     : ""
 
   const linkedinShare = pdfUrl
-    ? `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pdfUrl)}`
+    ? `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(shareText + " " + pdfUrl)}`
     : ""
 
-  /* Copy link function */
+
   const copyLink = () => {
     if (pdfUrl) {
       navigator.clipboard.writeText(pdfUrl)
@@ -85,118 +85,152 @@ const LaunchSuccess = () => {
     }
   }
 
+
+  const downloadPdf = async () => {
+  try {
+    const response = await fetch(pdfUrl)
+
+    if (!response.ok) {
+      throw new Error("Failed to download PDF")
+    }
+
+    const blob = await response.blob()
+
+    // create a file with explicit pdf extension
+    const file = new File([blob], "LaunchPass.pdf", {
+      type: "application/pdf"
+    })
+
+    const url = window.URL.createObjectURL(file)
+
+    const link = document.createElement("a")
+    link.href = url
+    link.download = file.name
+
+    document.body.appendChild(link)
+    link.click()
+
+    link.remove()
+    window.URL.revokeObjectURL(url)
+
+  } catch (err) {
+    console.error("Download failed:", err)
+    alert("Unable to download ticket.")
+  }
+}
+
+
   return (
     <div className='w-full h-full bg-black'>
       <Navbar />
+
       <div className='pt-18'>
-      <div className="bg-[url('./assets/LaunchSuccessbg.png')] w-full h-[855px] bg-cover">
+        <div className="bg-[url('./assets/LaunchSuccessbg.png')] w-full h-[855px] bg-cover">
 
-        <div className='flex flex-col items-end pt-40 gap-6'>
+          <div className='flex flex-col items-end pt-40 gap-6'>
 
-          {/* Title */}
-          <div className='flex flex-col text-left pr-30'>
-            <span className='text-white text-7xl font-extralight font-aspekta'>
-              Launch Pass
-            </span>
-            <span className='text-white text-7xl font-extralight font-aspekta'>
-              Generated Yayyy....
-            </span>
-          </div>
+            <div className='flex flex-col text-left pr-30'>
+              <span className='text-white text-7xl font-extralight font-aspekta'>
+                Launch Pass
+              </span>
 
-          {/* PDF Section */}
-          <div className='pr-50 flex flex-col items-end gap-2'>
+              <span className='text-white text-7xl font-extralight font-aspekta'>
+                Generated Yayyy....
+              </span>
+            </div>
 
-            {loading && (
-              <div className='text-white text-xl'>
-                Verifying payment & loading ticket...
-              </div>
-            )}
 
-            {!loading && error && (
-              <div className='text-red-500 text-xl'>
-                {error}
-              </div>
-            )}
+            <div className='pr-50 flex flex-col items-end gap-2'>
 
-            {!loading && pdfUrl && !error && (
-              <>
-                {/* PDF */}
-                <div className='bg-transparent'>
-                  <Document file={pdfUrl}>
-                    <Page
-                      pageNumber={1}
-                      width={750}
-                      renderAnnotationLayer={false}
-                      renderTextLayer={false}
-                    />
-                  </Document>
+              {loading && (
+                <div className='text-white text-xl'>
+                  Verifying payment & loading ticket...
                 </div>
+              )}
 
-                {/* Share + Download Icons */}
-                <div className='flex items-center gap-6 text-base'>
-
-                  {/* Download */}
-                  <a
-                    href={pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className='text-white hover:text-gray-300 transition'
-                    title="Download Ticket"
-                  >
-                    <FiDownload />
-                  </a>
-
-                  {/* WhatsApp */}
-                  <a
-                    href={whatsappShare}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className='text-green-500 hover:text-green-400 transition'
-                    title="Share on WhatsApp"
-                  >
-                    <FaWhatsapp />
-                  </a>
-
-                  {/* LinkedIn */}
-                  <a
-                    href={linkedinShare}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className='text-blue-600 hover:text-blue-500 transition'
-                    title="Share on LinkedIn"
-                  >
-                    <FaLinkedin />
-                  </a>
-
-                  {/* Twitter/X */}
-                  <a
-                    href={twitterShare}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className='text-sky-500 hover:text-sky-400 transition'
-                    title="Share on X"
-                  >
-                    <FaXTwitter />
-                  </a>
-
-                  {/* Copy Link */}
-                  <button
-                    onClick={copyLink}
-                    className='text-red-500 hover:text-red-400 transition'
-                    title="Copy Share Link"
-                  >
-                    <FaShareAlt />
-                  </button>
-
+              {!loading && error && (
+                <div className='text-red-500 text-xl'>
+                  {error}
                 </div>
+              )}
 
-              </>
-            )}
+              {!loading && pdfUrl && !error && (
+                <>
+
+                  <div className='bg-transparent'>
+                    <Document file={pdfUrl}>
+                      <Page
+                        pageNumber={1}
+                        width={750}
+                        renderAnnotationLayer={false}
+                        renderTextLayer={false}
+                      />
+                    </Document>
+                  </div>
+
+
+                  <div className='flex items-center gap-6 text-base'>
+
+                    <button
+                      onClick={downloadPdf}
+                      className='text-white hover:text-gray-300 transition'
+                      title="Download Ticket"
+                    >
+                      <FiDownload />
+                    </button>
+
+
+                    <a
+                      href={whatsappShare}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className='text-green-500 hover:text-green-400 transition'
+                      title="Share on WhatsApp"
+                    >
+                      <FaWhatsapp />
+                    </a>
+
+
+                    <a
+                      href={linkedinShare}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className='text-blue-600 hover:text-blue-500 transition'
+                      title="Share on LinkedIn"
+                    >
+                      <FaLinkedin />
+                    </a>
+
+
+                    <a
+                      href={twitterShare}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className='text-sky-500 hover:text-sky-400 transition'
+                      title="Share on X"
+                    >
+                      <FaXTwitter />
+                    </a>
+
+
+                    <button
+                      onClick={copyLink}
+                      className='text-red-500 hover:text-red-400 transition'
+                      title="Copy Share Link"
+                    >
+                      <FaShareAlt />
+                    </button>
+
+                  </div>
+
+                </>
+              )}
+
+            </div>
 
           </div>
 
         </div>
-      </div>
       </div>
 
       <img src={FooterLine} alt="FooterLine" className="w-full" />

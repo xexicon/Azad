@@ -157,7 +157,7 @@ const LaunchPass = () => {
       <Navbar />
 
       <div className='pt-18'>
-      <div className="bg-[url('./assets/LaunchBackground.svg')] bg-contain xl:bg-cover bg-center bg-no-repeat w-full h-screen">
+      <div className="bg-[url('./assets/LaunchBackground.svg')] bg-contain xl:bg-cover bg-center bg-no-repeat w-full min-h-screen">
         <div className='flex flex-col pt-70 pl-20 gap-5'>
           <span className="text-white text-7xl font-extralight font-aspekta">
             Get your <br/>
