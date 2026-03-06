@@ -22,7 +22,7 @@ const Footer = () => {
 
   return (
     <div>
-    <div className="w-full pt-10 pb-30 bg-black">
+    <div className="w-full pt-6 md:pt-10 pb-30 bg-black">
 
       {/* ================= DESKTOP FOOTER (UNCHANGED) ================= */}
       <div className="hidden md:block">
@@ -85,7 +85,7 @@ const Footer = () => {
       </div>
 
       {/* ================= MOBILE FOOTER ================= */}
-      <div className="md:hidden px-6 pt-12 space-y-10">
+      <div className="md:hidden px-6 pt-6 space-y-8">
 
         {/* Logo */}
         <img src={Azad} alt="Logo" className="w-48 mx-auto" />

@@ -125,31 +125,31 @@ const LaunchSuccess = () => {
       <Navbar />
 
       <div className='pt-18'>
-        <div className="bg-[url('./assets/LaunchSuccessbg.png')] w-full h-[855px] bg-cover">
+        <div className="bg-[url('./assets/LaunchSuccessbg.png')] w-full min-h-[855px] bg-cover bg-center">
 
-          <div className='flex flex-col items-end pt-40 gap-6'>
+          <div className='flex flex-col items-center lg:items-end pt-24 px-4 pb-10 gap-6 lg:pt-40 lg:px-0'>
 
-            <div className='flex flex-col text-left pr-30'>
-              <span className='text-white text-7xl font-extralight font-aspekta'>
+            <div className='flex flex-col text-center lg:text-left lg:pr-30'>
+              <span className='text-white text-4xl sm:text-5xl lg:text-7xl font-extralight font-aspekta leading-tight'>
                 Launch Pass
               </span>
 
-              <span className='text-white text-7xl font-extralight font-aspekta'>
+              <span className='text-white text-4xl sm:text-5xl lg:text-7xl font-extralight font-aspekta leading-tight'>
                 Generated Yayyy....
               </span>
             </div>
 
 
-            <div className='pr-50 flex flex-col items-end gap-2'>
+            <div className='w-full max-w-[780px] lg:max-w-none lg:w-auto lg:pr-50 flex flex-col items-center lg:items-end gap-2'>
 
               {loading && (
-                <div className='text-white text-xl'>
+                <div className='text-white text-lg sm:text-xl text-center lg:text-right'>
                   Verifying payment & loading ticket...
                 </div>
               )}
 
               {!loading && error && (
-                <div className='text-red-500 text-xl'>
+                <div className='text-red-500 text-lg sm:text-xl text-center lg:text-right'>
                   {error}
                 </div>
               )}
@@ -157,11 +157,11 @@ const LaunchSuccess = () => {
               {!loading && pdfUrl && !error && (
                 <>
 
-                  <div className='bg-transparent'>
+                  <div className='bg-transparent w-full flex justify-center lg:justify-end'>
                     <Document file={pdfUrl}>
                       <Page
                         pageNumber={1}
-                        width={750}
+                        width={typeof window !== "undefined" && window.innerWidth < 1024 ? Math.min(window.innerWidth - 32, 750) : 750}
                         renderAnnotationLayer={false}
                         renderTextLayer={false}
                       />
@@ -169,7 +169,7 @@ const LaunchSuccess = () => {
                   </div>
 
 
-                  <div className='flex items-center gap-6 text-base'>
+                  <div className='flex items-center justify-center lg:justify-end gap-6 text-xl sm:text-2xl lg:text-base'>
 
                     <button
                       onClick={downloadPdf}

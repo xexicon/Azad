@@ -157,7 +157,7 @@ const LaunchPass = () => {
       <Navbar />
 
       <div className='pt-18'>
-      <div className="bg-[url('./assets/LaunchBackground.svg')] bg-contain xl:bg-cover bg-center bg-no-repeat w-full min-h-screen">
+      <div className="hidden md:block bg-[url('./assets/LaunchBackground.svg')] bg-contain xl:bg-cover bg-center bg-no-repeat w-full min-h-screen">
         <div className='flex flex-col pt-70 pl-20 gap-5'>
           <span className="text-white text-7xl font-extralight font-aspekta">
             Get your <br/>
@@ -171,6 +171,33 @@ const LaunchPass = () => {
           >
             Buy Launch Pass
           </button>
+        </div>
+      </div>
+
+      <div className="md:hidden w-full bg-[#0C0D0E] pb-2">
+        <div className="relative w-full overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/dc7bb6868/image/upload/v1772791495/Group_102_hltlu2.png"
+            alt="Launch pass"
+            className="w-full h-auto object-cover object-center"
+          />
+
+          <div className="absolute inset-0 bg-black/45" />
+
+          <div className='absolute inset-x-0 top-0 z-10 flex flex-col gap-2 px-6 pt-12 text-center [text-shadow:0_2px_10px_rgba(0,0,0,0.9)]'>
+            <span className="text-white text-4xl font-extralight font-aspekta leading-none">
+              Get your
+            </span>
+            <span className="text-red-600 text-4xl font-extralight font-aspekta leading-none">
+              Launch Pass
+            </span>
+            <button
+              onClick={scrollToForm}
+              className='mx-auto w-44 h-11 border border-red-600 bg-black/40 font-aspekta text-white backdrop-blur-[1px]'
+            >
+              Buy Launch Pass
+            </button>
+          </div>
         </div>
       </div>
       </div>
