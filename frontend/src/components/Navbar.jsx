@@ -54,7 +54,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white relative z-[60]"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <FiMenu size={26} />
@@ -67,14 +67,22 @@ const Navbar = () => {
           <a href="/about-us" className="block text-white text-lg">About</a>
           <a href="#contact" onClick={handleAzadClick} className="block text-white text-lg">Azad</a>
           <a href="/contact-us" className="block text-white text-lg">Contact Us</a>
-          <a href="#" className="block text-white text-lg">News</a>
+          <a href="https://ocullospace.com/news" className="block text-white text-lg">News</a>
 
-          <a
-            href="/book-launch"
-            className="block text-center mt-4 px-6 py-2 text-white border border-[#F00000]"
-          >
-            Book Launch
-          </a>
+          <div className="grid grid-cols-1 gap-3 pt-2">
+            <a
+              href="/launch-pass"
+              className="block text-center px-6 py-2 text-white bg-[#F00000] border border-[#F00000]"
+            >
+              Launch Pass
+            </a>
+            <a
+              href="/book-launch"
+              className="block text-center px-6 py-2 text-white border border-[#F00000]"
+            >
+              Book Launch
+            </a>
+          </div>
         </div>
       )}
     </div>
