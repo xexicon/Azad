@@ -264,7 +264,7 @@ const Home = () => {
 
       {/* ================= ENGINE ================= */}
       <div className="w-full flex flex-col sm:flex-row justify-between items-center sm:items-start px-6 sm:px-25 py-12 gap-10 text-center sm:text-right font-aspekta font-extralight">
-        <img src={Engine} alt="Engine" className='w-full max-w-md sm:max-w-none' />
+        <img src={Engine} alt="Engine" className='w-full max-w-md sm:max-w-none sm:max-h-[700px]' />
 
         <div className="flex flex-col gap-5 items-center sm:items-end">
           <div>
