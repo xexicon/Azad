@@ -166,7 +166,7 @@ const Home = () => {
         </div>
 
         <div className='flex items-start justify-center gap-5 sm:gap-7'>
-          <div className='flex-shrink-0 w-[28%] sm:w-[24%] pt-1'>
+          <div className='flex-shrink-0 w-[28%] sm:w-[24%] '>
             <VertPh />
           </div>
 

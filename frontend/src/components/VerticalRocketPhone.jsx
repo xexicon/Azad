@@ -1,4 +1,4 @@
-import RocketFull from "../assets/RocketFull.svg";
+import RocketFull from "../assets/RocketSekl.svg";
 
 export default function VerticalRocketPhone() {
   return (
